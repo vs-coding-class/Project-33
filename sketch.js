@@ -91,24 +91,29 @@ function draw() {
             gameState = "end";
           }
         }
-
-        if(particle.body.position.x >= 240 && particle.body.position.x <= 560){
-          score = score + 200;
-          particle = 0;
-          if(count === 5){
-            gameState = "end";
+        else{
+          if(particle.body.position.x >= 240 && particle.body.position.x <= 560){
+            score = score + 200;
+            particle = null;
+            if(count === 5){
+              gameState = "end";
+            }
           }
-        }
-
-        if(particle.body.position.x > 560){
-          score = score + 100;
-          particle = null;
-          if(count === 5){
-            gameState = "end";
+          else{
+            score = score + 100;
+            particle = null;
+            if(count === 5){
+              gameState = "end";
+            }
           }
         }
       }
     }
+  }
+
+  if(gameState === "end"){
+    textSize(40);
+    text("GAME OVER!",380,420);
   }
 }
 
